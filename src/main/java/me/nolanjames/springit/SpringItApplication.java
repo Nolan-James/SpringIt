@@ -7,6 +7,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
+import org.thymeleaf.extras.springsecurity5.dialect.SpringSecurityDialect;
 
 @SpringBootApplication
 public class SpringItApplication {
@@ -22,15 +23,8 @@ public class SpringItApplication {
         return new PrettyTime();
     }
 
-//    @Bean
-//    CommandLineRunner runner(LinkRepository linkRepository, CommentRepository commentRepository) {
-//        return args -> {
-//            Link link = new Link("Properties with Spring and Spring Boot", "https://www.baeldung.com/properties-with-spring");
-//
-//            Comment comment = new Comment("Great resource");
-//            link.getComments().add(comment);
-//            linkRepository.save(link);
-//        };
-//    }
-
+    @Bean
+    public SpringSecurityDialect securityDialect() {
+        return new SpringSecurityDialect();
+    }
 }
